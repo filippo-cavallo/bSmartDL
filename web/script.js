@@ -29,7 +29,7 @@ function showPage(pageId) {
   if (page) page.classList.remove("d-none");
 }
 
-// Function that checks if (and makes) the backend (python) is logged in into bsmart
+// Checks if the backend (py) is logged in to bSmart and attempts to log in if not
 async function login() {
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
@@ -69,7 +69,7 @@ async function renderBooks() {
     const card = document.createElement("div");
     card.className = "col-12 col-sm-6 col-md-4 col-lg-3"; // responsive grid
 
-    // Process the authors array into a string
+    // Process authors array into a string
     const authorsText = (book.authors || [])
       .map((author) => `${author.name} ${author.surname}`)
       .join(", ");

@@ -113,7 +113,7 @@ def downloadBook(book_id):
             eel.addLog("❌ Error: Failed to extract private key.")
             return
 
-        # Create book authentication java web token
+        # Create book authentication json web token
         eel.addLog("🔑 Creating JWT...")
         jwt = lib.bsmartApi.create_jwt(AppState.session, private_key, book_id, password)
         if not jwt:
@@ -138,10 +138,10 @@ def downloadBook(book_id):
 
         # Create folder if doesnt exist and create pdf
         os.makedirs("downloads", exist_ok=True)
-        filename = f"downloads/{title}.pdf"  # Puoi cambiare estensione se vuoi altro
+        filename = f"downloads/{title}.pdf" # Change title if you want
         eel.addLog(f"💾 Downloading to {title}.pdf...")
 
-        pdf = FPDF(unit="pt", format=[1600, 2262])  # dimensioni della pagina
+        pdf = FPDF(unit="pt", format=[1600, 2262]) # Page dimensions
         pdf.set_auto_page_break(auto=False)
 
         # Download each page
