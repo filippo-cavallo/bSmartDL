@@ -2,6 +2,8 @@
 
 _A reverse-engineered backup tool for your legally purchased bSmart books_
 
+<img src="/screenshots/library.png" alt="Library Screenshot" width="600" />
+
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
@@ -57,13 +59,13 @@ This project was born from a deep-dive into the bSmart Books platform, involving
 
 ---
 
-### Building an Executable
+### Building an Executable 📦
 
 You can easily package the project into a standalone executable using **PyInstaller**.
 
 Already built Windows executables are provided in releases.
 
-**Example for Windows**:
+**Example for Windows (Ignore any strip warning)**:
 ```bash
 pip install pyinstaller
 pyinstaller --noconsole --onefile --add-data "web;web" --clean --strip --icon=web/assets/favicon.ico app.py
