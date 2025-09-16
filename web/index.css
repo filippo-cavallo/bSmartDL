@@ -1,0 +1,55 @@
+/* Page layout */
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Main flex container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Upper part (app content) */
+.content {
+  flex: 4;
+  overflow-y: auto;
+  padding: 20px;
+  background: #f8f9fa;
+}
+
+/* Lower part (app logging and debug) */
+.log-box {
+  flex: 1;
+  background: #212529;
+  color: #f1f1f1;
+  padding: 10px;
+  font-size: 14px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-top: 2px solid #444;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+/* Scrollbar styles */
+.log-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.log-box::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.log-box::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.book-cover {
+  width: 100%;
+  height: auto;
+}

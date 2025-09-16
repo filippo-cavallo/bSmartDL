@@ -1,0 +1,6 @@
+beautifulsoup4
+fpdf2
+python-jose
+requests
+eel
+Pillow
