@@ -71,6 +71,12 @@ pip install pyinstaller
 pyinstaller --noconsole --onefile --add-data "web;web" --clean --strip --icon=web/assets/favicon.ico app.py
 ```
 
+**Example for Linux (Ignore any strip warning)**:
+```bash
+pip install pyinstaller
+pyinstaller --noconsole --onefile --add-data "web:web" --clean --strip --icon=web/assets/favicon.ico app.py
+```
+
 ---
 
 ### Technical Deep-Dive 🧠
