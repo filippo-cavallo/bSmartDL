@@ -81,24 +81,27 @@ async function renderBooks() {
         <h5 class="card-title">${book.title}</h5>
         <p class="card-text text-muted">${authorsText}</p>
         <div class="mt-auto">
-            <button class="btn btn-primary w-100" onclick="startDownload('${book.id}')">Download</button>
+            <button class="btn btn-primary w-100" onclick="downloadOptions('${book.id}', '${book.page_count}')">Download</button>
         </div>
         </div>
     </div>`;
-
 
     container.appendChild(card);
   });
 }
 
-// Show download modal
-function showDownloadModal() {
-  const downloadModal = new bootstrap.Modal(document.getElementById('downloadModal'));
+// Show download options modal
+function downloadOptions(bookId, maxPages) {
+  // Get or create modal instance
+  const downloadModal = bootstrap.Modal.getOrCreateInstance(document.getElementById('downloadModal'));
+  // Set max pages in the modal for end page
+  document.getElementById('end-page').setAttribute('placeholder', maxPages);
+  document.getElementById('end-page').setAttribute('value', maxPages);
+  document.getElementById('end-page').setAttribute('max', maxPages);
+  // Set max pages in the modal for start page
+  document.getElementById('start-page').setAttribute('max', maxPages);
+  // Set onclick attribute on the confirm button with the python function call
+  document.getElementById('confirm-dl-button').setAttribute('onclick', `eel.downloadBook('${bookId}', document.getElementById('start-page').value, document.getElementById('end-page').value, document.getElementById('download-method').value, document.getElementById('image-store').value)`);
+  // Show the modal
   downloadModal.show();
-}
-
-// Start book download in py and show popup
-async function startDownload(bookId) {
-  showDownloadModal();
-  eel.downloadBook(bookId)();
 }

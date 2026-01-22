@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -46,7 +46,7 @@
             <button
               id="login-btn"
               class="btn btn-primary w-100"
-              onclick="login();"
+              onclick="login()"
             >
               Login
             </button>
@@ -64,20 +64,50 @@
       <!-- Log box -->
       <div id="log-box" class="log-box"></div>
     </div>
-    <!-- Download Start Popup -->
+    <!-- Download Options Popup -->
     <div class="modal fade" id="downloadModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content text-center p-4">
           <div class="modal-body">
-            <h5 class="modal-title mb-2">📥 Download started</h5>
-            <p class="text-muted">Check the logs for download status</p>
-            <button
-              type="button"
-              class="btn btn-secondary mt-3"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
+            <h2><strong>Download options ⚙️</strong></h2>
+            
+            <!-- Download method -->
+            <div>
+              <p class="mt-3 mb-3">Download method</p>
+              <select name="" class="form-select" id="download-method">
+                <option value="threaded">Threaded</option>
+                <option value="sequential">Sequential (old)</option>
+              </select>
+            </div>
+
+            <!-- Image store (save on disk or in variable) -->
+            <div>
+              <p class="mt-3 mb-3">Images Store</p>
+              <select name="" class="form-select" id="image-store">
+                <option value="ram">RAM</option>
+                <option value="disk">Disk</option>
+              </select>
+            </div>
+            
+            <!-- Pages downlooad range -->
+            <div style="display: flex; justify-content: space-between; align-items: center;" class="mt-4">
+              <div class="form-floating" style="width: 48%">
+                <input type="number" name="start-page" class="form-control" id="start-page" placeholder="1" value="1" min="1" max="">
+                <label for="start-page">Start Page</label>
+              </div>
+
+              <div class="form-floating" style="width: 48%">
+                <input type="number" name="end-page" class="form-control" id="end-page" placeholder="" value="" min="1" max="">
+                <label for="end-page">End Page</label>
+              </div>
+            </div>
+
+            <p class="mt-3 mb-3" style="font-size: 12px; color: grey">
+              Leave at default if you don't know what to do
+            </p>
+
+            <!-- Onclick is set dynamically in script.js -->
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="confirm-dl-button" onclick="">Start</button>
           </div>
         </div>
       </div>
